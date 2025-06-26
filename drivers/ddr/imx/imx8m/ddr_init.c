@@ -390,7 +390,7 @@ int ddr_init(struct dram_timing_info *dram_timing)
 	 * Step8 ~ Step13: Start PHY initialization and training by
 	 * accessing relevant PUB registers
 	 */
-	debug("DDRINFO:ddrphy config start\n");
+	debug("DDRINFO: ddrphy config start\n");
 
 	ret = ddr_cfg_phy(dram_timing);
 	if (ret)
@@ -409,7 +409,7 @@ int ddr_init(struct dram_timing_info *dram_timing)
 		tmp = reg32_read(DDRPHY_CalBusy(0));
 	} while ((tmp & 0x1));
 
-	printf("DDRINFO:ddrphy calibration done\n");
+	printf("DDRINFO: ddrphy calibration done\n");
 
 	/* Step15: Set SWCTL.sw_done to 0 */
 	reg32_write(DDRC_SWCTL(0), 0x00000000);

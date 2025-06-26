@@ -387,7 +387,7 @@ static int spl_romapi_load_image_stream(struct spl_image_info *spl_image,
 	}
 
 	imagesize = img_info_size(phdr);
-	printf("Find img info 0x%p, size %d\n", phdr, imagesize);
+	debug("Find img info 0x%p, size %d\n", phdr, imagesize);
 
 	if (p - phdr < imagesize) {
 		imagesize -= p - phdr;
@@ -396,7 +396,7 @@ static int spl_romapi_load_image_stream(struct spl_image_info *spl_image,
 		imagesize /= pg;
 		imagesize *= pg;
 
-		printf("Need continue download %d\n", imagesize);
+		debug("Need continue download %d\n", imagesize);
 
 		ret = rom_api_download_image(p, 0, imagesize);
 
